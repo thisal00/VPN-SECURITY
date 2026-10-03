@@ -1,0 +1,50 @@
+name: Flutter CI/CD Pipeline
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    name: Build & Test
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout the code from the repository
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      # Step 2: Setup Java (required for Android build)
+      - name: Setup Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'zulu'
+          java-version: '17'
+
+      # Step 3: Setup Flutter environment
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.19.0' # You can adjust this to your specific Flutter version
+          channel: 'stable'
+
+      # Step 4: Get Flutter dependencies
+      - name: Install Dependencies
+        run: flutter pub get
+
+      # Step 5: Check for any formatting issues (Optional but good for clean code)
+      - name: Analyze Code
+        run: flutter analyze
+
+      # Step 6: Build the Android APK
+      - name: Build APK
+        run: flutter build apk --release
+
+      # Step 7: Upload the built APK so you can download it from GitHub
+      - name: Upload APK Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: VPN-Security-App-Release
+          path: build/app/outputs/flutter-apk/app-release.apk
