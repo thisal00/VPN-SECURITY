@@ -1,0 +1,35 @@
+name: warp_vpn_app
+description: "A new Flutter project."
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.11.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+  wireguard_flutter:
+    path: packages/amnezia_flutter
+  http: ^1.2.0
+  shared_preferences: ^2.3.0
+  fl_chart: ^0.65.0
+  flutter_animate: ^4.5.0
+  flutter_secure_storage: ^9.2.2
+  connectivity_plus: ^6.1.0
+  network_info_plus: ^7.0.0
+  wifi_scan: ^0.4.1
+  permission_handler: ^11.3.1
+  google_mobile_ads: ^5.1.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
