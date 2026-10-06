@@ -19,23 +19,15 @@ import 'auto_protection_service.dart';
 import 'onboarding_screen.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'ad_service.dart';
+import 'splash_screen.dart';
 
-void main() async {
+void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  
-  // Initialize Google Mobile Ads SDK
-  MobileAds.instance.initialize();
-  
-  // Check if first run
-  final isFirstRun = await WarpStorage.isFirstRun();
-
-  runApp(WarpShieldApp(isFirstRun: isFirstRun));
+  runApp(const WarpShieldApp());
 }
 
 class WarpShieldApp extends StatelessWidget {
-  final bool isFirstRun;
-  
-  const WarpShieldApp({super.key, required this.isFirstRun});
+  const WarpShieldApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +42,7 @@ class WarpShieldApp extends StatelessWidget {
           surface: Color(0xFF111827),
         ),
       ),
-      home: isFirstRun ? const OnboardingScreen() : const MainSuperAppShell(),
+      home: const SplashScreen(),
     );
   }
 }
@@ -198,8 +190,8 @@ class _MainSuperAppShellState extends State<MainSuperAppShell> with TickerProvid
           _currentUp = (txDelta * 2 * 8) / 1000000.0;
           if (_currentDown < 0) _currentDown = 0;
           if (_currentUp < 0) _currentUp = 0;
-          _totalDownMB += rxDelta / 1000000.0;
-          _totalUpMB += txDelta / 1000000.0;
+          if (rxDelta > 0) _totalDownMB += rxDelta / 1000000.0;
+          if (txDelta > 0) _totalUpMB += txDelta / 1000000.0;
         }
         _lastRxBytes = rxBytes;
         _lastTxBytes = txBytes;
