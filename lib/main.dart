@@ -20,6 +20,7 @@ import 'onboarding_screen.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'ad_service.dart';
 import 'splash_screen.dart';
+import 'network_intel_screen.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -388,7 +389,7 @@ class _MainSuperAppShellState extends State<MainSuperAppShell> with TickerProvid
               },
             ),
             const SpyCameraDetector(),
-            SecurityLogsScreen(logs: _securityLogs),
+            NetworkIntelScreen(isVpnConnected: _isConnected),
             SettingsScreen(
               onClearKeys: () async {
                 await WarpStorage.clearKeys();
@@ -431,7 +432,7 @@ class _MainSuperAppShellState extends State<MainSuperAppShell> with TickerProvid
           BottomNavigationBarItem(icon: Icon(CupertinoIcons.shield_fill), label: 'VPN'),
           BottomNavigationBarItem(icon: Icon(CupertinoIcons.wifi), label: 'Wi-Fi'),
           BottomNavigationBarItem(icon: Icon(CupertinoIcons.video_camera), label: 'Spy Cam'),
-          BottomNavigationBarItem(icon: Icon(CupertinoIcons.doc_text), label: 'Logs'),
+          BottomNavigationBarItem(icon: Icon(CupertinoIcons.radar), label: 'IP Intel'),
           BottomNavigationBarItem(icon: Icon(CupertinoIcons.settings), label: 'Settings'),
         ],
       ),
