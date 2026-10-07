@@ -432,7 +432,7 @@ class _MainSuperAppShellState extends State<MainSuperAppShell> with TickerProvid
           BottomNavigationBarItem(icon: Icon(CupertinoIcons.shield_fill), label: 'VPN'),
           BottomNavigationBarItem(icon: Icon(CupertinoIcons.antenna_radiowaves_left_right), label: 'Signals'),
           BottomNavigationBarItem(icon: Icon(CupertinoIcons.video_camera), label: 'Spy Cam'),
-          BottomNavigationBarItem(icon: Icon(CupertinoIcons.radar), label: 'IP Intel'),
+          BottomNavigationBarItem(icon: Icon(CupertinoIcons.globe), label: 'IP Intel'),
           BottomNavigationBarItem(icon: Icon(CupertinoIcons.settings), label: 'Settings'),
         ],
       ),

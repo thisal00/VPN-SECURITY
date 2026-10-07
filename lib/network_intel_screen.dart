@@ -117,7 +117,7 @@ class _NetworkIntelScreenState extends State<NetworkIntelScreen> {
         ),
         IconButton(
           onPressed: _isLoading ? null : _fetchIpData,
-          icon: const Icon(CupertinoIcons.radar, color: Color(0xFF00D4FF), size: 28),
+          icon: const Icon(CupertinoIcons.globe, color: Color(0xFF00D4FF), size: 28),
           tooltip: 'Analyze Network',
         ),
       ],
