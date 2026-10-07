@@ -11,7 +11,7 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'warp_config.dart';
 import 'warp_api.dart';
 import 'warp_storage.dart';
-import 'wifi_scanner_screen.dart';
+import 'network_scanner_screen.dart';
 import 'spy_camera_detector.dart';
 import 'security_logs_screen.dart';
 import 'settings_screen.dart';
@@ -381,7 +381,7 @@ class _MainSuperAppShellState extends State<MainSuperAppShell> with TickerProvid
           index: _currentTabIndex,
           children: [
             _buildVpnDashboard(),
-            WifiScannerScreen(
+            NetworkScannerScreen(
               isVpnConnected: _isConnected,
               onAutoShield: () {
                 setState(() => _currentTabIndex = 0);
@@ -430,7 +430,7 @@ class _MainSuperAppShellState extends State<MainSuperAppShell> with TickerProvid
         unselectedLabelStyle: const TextStyle(fontSize: 11),
         items: const [
           BottomNavigationBarItem(icon: Icon(CupertinoIcons.shield_fill), label: 'VPN'),
-          BottomNavigationBarItem(icon: Icon(CupertinoIcons.wifi), label: 'Wi-Fi'),
+          BottomNavigationBarItem(icon: Icon(CupertinoIcons.antenna_radiowaves_left_right), label: 'Signals'),
           BottomNavigationBarItem(icon: Icon(CupertinoIcons.video_camera), label: 'Spy Cam'),
           BottomNavigationBarItem(icon: Icon(CupertinoIcons.radar), label: 'IP Intel'),
           BottomNavigationBarItem(icon: Icon(CupertinoIcons.settings), label: 'Settings'),
