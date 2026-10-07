@@ -139,7 +139,7 @@ class _SpyCameraDetectorState extends State<SpyCameraDetector> with TickerProvid
               height: 280,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                border: Border.all(color: const Color(0xFFF43F5E).withOpacity(0.3), width: 2),
+                border: Border.all(color: const Color(0xFFF43F5E).withValues(alpha: 0.3), width: 2),
               ),
             ).animate(onPlay: (c) => c.repeat())
              .scale(begin: const Offset(0.5, 0.5), end: const Offset(1.2, 1.2), duration: 2.seconds)
@@ -152,7 +152,7 @@ class _SpyCameraDetectorState extends State<SpyCameraDetector> with TickerProvid
               height: 200,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                border: Border.all(color: const Color(0xFFF43F5E).withOpacity(0.5), width: 2),
+                border: Border.all(color: const Color(0xFFF43F5E).withValues(alpha: 0.5), width: 2),
               ),
             ).animate(delay: 1.seconds, onPlay: (c) => c.repeat())
              .scale(begin: const Offset(0.5, 0.5), end: const Offset(1.2, 1.2), duration: 2.seconds)
@@ -171,7 +171,7 @@ class _SpyCameraDetectorState extends State<SpyCameraDetector> with TickerProvid
               ),
               boxShadow: [
                 BoxShadow(
-                  color: _isScanning ? const Color(0xFFE11D48).withOpacity(0.5) : Colors.black54,
+                  color: _isScanning ? const Color(0xFFE11D48).withValues(alpha: 0.5) : Colors.black54,
                   blurRadius: 20,
                   spreadRadius: 2,
                 )
@@ -252,9 +252,9 @@ class _SpyCameraDetectorState extends State<SpyCameraDetector> with TickerProvid
           Container(
             padding: const EdgeInsets.all(20),
             decoration: BoxDecoration(
-              color: const Color(0xFF22C55E).withOpacity(0.1),
+              color: const Color(0xFF22C55E).withValues(alpha: 0.1),
               borderRadius: BorderRadius.circular(20),
-              border: Border.all(color: const Color(0xFF22C55E).withOpacity(0.3)),
+              border: Border.all(color: const Color(0xFF22C55E).withValues(alpha: 0.3)),
             ),
             child: const Column(
               children: [
@@ -290,9 +290,9 @@ class _SpyCameraDetectorState extends State<SpyCameraDetector> with TickerProvid
           width: double.infinity,
           padding: const EdgeInsets.all(16),
           decoration: BoxDecoration(
-            color: const Color(0xFFE11D48).withOpacity(0.1),
+            color: const Color(0xFFE11D48).withValues(alpha: 0.1),
             borderRadius: BorderRadius.circular(16),
-            border: Border.all(color: const Color(0xFFE11D48).withOpacity(0.5)),
+            border: Border.all(color: const Color(0xFFE11D48).withValues(alpha: 0.5)),
           ),
           child: Column(
             children: [
@@ -345,7 +345,7 @@ class _SpyCameraDetectorState extends State<SpyCameraDetector> with TickerProvid
           Container(
             padding: const EdgeInsets.all(12),
             decoration: BoxDecoration(
-              color: const Color(0xFFE11D48).withOpacity(0.15),
+              color: const Color(0xFFE11D48).withValues(alpha: 0.15),
               shape: BoxShape.circle,
             ),
             child: const Icon(CupertinoIcons.camera_fill, color: Color(0xFFF43F5E), size: 24),
